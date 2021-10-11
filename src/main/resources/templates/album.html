@@ -1,0 +1,51 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1 th:text= "${albums.get(0).getTitle}"></h1>-->
+<!--<h2 th:text="'albums, ' + ${album} + '!'"></h2>-->
+
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Album</title>
+    <link rel="stylesheet" href="albums.css" />
+</head>
+<style>
+.albums{
+background-color: whitesmoke;
+width: 400px;
+    position: relative;
+    margin-left: 450px;
+
+
+}
+.img{
+    width: 350px;
+        margin-left: 25px;
+    margin-top: 25px;
+}
+</style>
+<body>
+<h1 class="title">
+    Your Best Albums !
+</h1>
+<main>
+    <div th:each=" album : ${album}" class="albums">
+        <img class="img" th:src="${album.imgUrl}"  />
+        <p> Title : <span th:text ="${album.title}"></span></p>
+        <p> Artist  : <span th:text ="${album.artist}"></span></p>
+        <p> Number OF Song : <span th:text ="${album.songCount}"></span></p>
+        <p> length  : <span th:text ="${album.length}"></span></p>
+
+    </div>
+</main>
+
+</body>
+</html>
