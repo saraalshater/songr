@@ -1,51 +1,119 @@
+
 <!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
 <!--<head>-->
 <!--    <meta charset="UTF-8">-->
-<!--    <title>Title</title>-->
+<!--    <title>Album</title>-->
+<!--    <link rel="stylesheet" href="albums.css" />-->
 <!--</head>-->
+<!--<style>-->
+<!--.albums{-->
+<!--background-color: whitesmoke;-->
+<!--width: 400px;-->
+<!--    position: relative;-->
+<!--    margin-left: 450px;-->
+
+
+<!--}-->
+<!--.img{-->
+<!--    width: 350px;-->
+<!--        margin-left: 25px;-->
+<!--    margin-top: 25px;-->
+<!--}-->
+<!--</style>-->
 <!--<body>-->
-<!--<h1 th:text= "${albums.get(0).getTitle}"></h1>-->
-<!--<h2 th:text="'albums, ' + ${album} + '!'"></h2>-->
+<!--<h1 class="title">-->
+<!--    Your Best Albums !-->
+<!--</h1>-->
+<!--<main>-->
+<!--    <div th:each=" album : ${albums}" class="albums">-->
+<!--        <img class="img" th:src="${album.imgUrl}"  />-->
+<!--        <p> Title : <span th:text ="${album.title}"></span></p>-->
+<!--        <p> Artist  : <span th:text ="${album.artist}"></span></p>-->
+<!--        <p> Number OF Song : <span th:text ="${album.songCount}"></span></p>-->
+<!--        <p> length  : <span th:text ="${album.length}"></span></p>-->
+
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <h3>add a new Album</h3>-->
+<!--        <form action="/albums" method="post">-->
+<!--            <input type="text" name="title"/>-->
+<!--            <input type="text" name="artist"/>-->
+<!--            <input type="number" name="songCount"/>-->
+<!--            <input type="number" name="length"/>-->
+<!--            <input type="text" name="imgUrl"/>-->
+<!--    <button type ="submit">Add album</button>-->
+<!--        </form>-->
+<!--    </div>-->
+<!--</main>-->
 
 <!--</body>-->
 <!--</html>-->
+
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Album</title>
-    <link rel="stylesheet" href="albums.css" />
-</head>
-<style>
-.albums{
+    <title>Title</title>
+</head >
+
+<style >
+ .albums{
 background-color: whitesmoke;
 width: 400px;
     position: relative;
-    margin-left: 450px;
-
-
+   margin-left: 450px;
 }
+
 .img{
-    width: 350px;
-        margin-left: 25px;
-    margin-top: 25px;
+ width: 350px;
+ margin-left: 25px;
+top: 25px;
 }
 </style>
-<body>
-<h1 class="title">
-    Your Best Albums !
-</h1>
-<main>
-    <div th:each=" album : ${album}" class="albums">
-        <img class="img" th:src="${album.imgUrl}"  />
-        <p> Title : <span th:text ="${album.title}"></span></p>
-        <p> Artist  : <span th:text ="${album.artist}"></span></p>
-        <p> Number OF Song : <span th:text ="${album.songCount}"></span></p>
-        <p> length  : <span th:text ="${album.length}"></span></p>
 
+
+
+
+
+<body class=" body">
+
+
+<h1 class="title">Albums</h1>
+
+
+
+<div class="toFlex">
+    <div>
+
+        <form action="/addalbums" method="post" class="albums">
+            <p>title</p><input type="text" name="title"/></br>
+            <p>Artist</p><input type="text" name="artist"/></br>
+            <p>songCount</p><input type="text" name="songCount"/></br>
+            <p>length</p><input type="text" name="length"/></br>
+            <p>imageUrl</p><input class="img" type="text" name="imgUrl"/></br>
+            <button type="submit">Submit</button>
+        </form>
     </div>
-</main>
+
+
+    <div class="card" style="width: 18rem;"   th:each="album:${addalbums}" >
+        <img th:src="${album.imgUrl}" class="card-img-top">
+
+        <div class="card-body">
+            <h5 class="card-title" th:text="${album.title}"></h5>
+            <div class="card-text">
+                <p th:text="'Artist : '+${album.artist}"></p>
+                <p th:text="'Count : '+${album.songCount}"></p>
+                <p th:text="'Length : '+${album.length}+' Seconds'"></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 
 </body>
 </html>
