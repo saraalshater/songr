@@ -84,3 +84,15 @@ You should run the POSTGRESQL on the terminal by using these commands"
 `\dt`
 
 `select * from album;`
+
+
+
+# lab 13 Overview
+The requirement for this lab is how the user can add a song to the specific album by fill the forms.
+
+## Router:
+`http://localhost:8080/addSong`
+ - This route is for added song page. The page contains a form to add a song to the specific album by fill it by the user.
+
+`http://localhost:8080/songs`
+- This route for song page. The page contains the songs that are added by the user.

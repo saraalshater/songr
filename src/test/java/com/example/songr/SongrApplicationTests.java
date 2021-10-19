@@ -1,4 +1,4 @@
-//package com.example.songr;
+package com.example.songr;
 //
 //import com.example.songr.model.Album;
 //import org.junit.jupiter.api.Assertions;
@@ -29,4 +29,71 @@
 //
 //	}
 //
+//
+//
 //}
+
+
+
+import com.example.songr.model.Album;
+import com.example.songr.model.Song;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+@SpringBootTest
+class SongrApplicationTests {
+    Album testAlbum;
+    @Test
+    public void constructorAlbum(){
+
+
+        Album testAlbum = new Album("hello" , "unknown",10,2500,"https://img.freepik.com/free-vector/electro-music-album_53876-67223.jpg?size=338&ext=jpg");
+        assertTrue(true);
+
+
+        testAlbum.setTitle("hello");
+        assertEquals("hello" , testAlbum.getTitle());
+
+
+        testAlbum.setArtist("sara");
+        assertEquals("sara" , testAlbum.getArtist());
+
+
+        testAlbum.setSongCount(15);
+        assertEquals(15, testAlbum.getSongCount());
+
+
+
+        testAlbum.setLength(10000);
+        assertEquals(10000, testAlbum.getLength());
+
+//		testAlbum.setImageUrl("unknown");
+//		assertEquals("unknown", testAlbum.getImageUrl());
+    }
+
+    @Test public void songConstructor(){
+
+        Song testSong = new Song("hello" ,  200 , 1 ,testAlbum );
+
+        /* Test Constructor */
+        assertTrue(testSong instanceof Song);
+
+
+        testSong.setTitle("newSong");
+        assertEquals("newSong", testSong.getTitle());
+
+        testSong.setLength(150);
+        assertEquals( 150 , testSong.getLength());
+
+
+        testSong.setTrackNumber(2);
+        assertEquals(2, testSong.getTrackNumber());
+
+    }
+
+
+}
